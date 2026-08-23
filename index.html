@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Bilal - Portfolio</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #111111;
+            color: #e3dcd0;
+            font-family: 'Google Sans Flex', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero-banner {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Top & Bottom Corner Metadata */
+        .top-left,
+        .top-right,
+        .bottom-left,
+        .bottom-right {
+            position: absolute;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #ebdcc4;
+            z-index: 10;
+        }
+
+        .top-left {
+            top: 40px;
+            left: 50px;
+        }
+
+        .top-right {
+            top: 40px;
+            right: 50px;
+            font-size: 1.4rem;
+        }
+
+        .bottom-left {
+            bottom: 40px;
+            left: 50px;
+            text-transform: uppercase;
+        }
+
+        .bottom-right {
+            bottom: 40px;
+            right: 50px;
+            opacity: 0.9;
+        }
+
+        /* Modal Trigger Button Style */
+        .modal-btn {
+            background: none;
+            border: none;
+            color: #ebdcc4;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            position: fixed;
+            right: 5vw;
+        }
+
+        .modal-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-btn:active {
+            transform: scale(0.8);
+        }
+
+        /* Stacking Container */
+        .portfolio-stack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Typography Styling */
+        .text-layer {
+            font-family: "Google Sans Flex", sans-serif;
+            font-size: 17vw;
+            line-height: 0.8;
+            letter-spacing: 2px;
+            position: absolute;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        /* Layer 1: Solid Text Behind Image */
+        .text-solid {
+            color: #ebdcc4;
+            z-index: 1;
+        }
+
+        /* Layer 2: Online Subject Image */
+        .person-img {
+            position: relative;
+            height: 100vh;
+            max-height: 100vh;
+            object-fit: contain;
+            z-index: 2;
+            filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.7));
+        }
+
+        /* Layer 3: Outline Text In Front of Image */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px #ebdcc4;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Custom Modal Backdrop Overlay */
+        .custom-modal {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(0px);
+            z-index: 100;
+            justify-content: right;
+            align-items: flex-start;
+            pointer-events: none;
+            transition: background-color 0.7s ease, backdrop-filter 0.7s ease;
+        }
+
+        /* Active Modal Overlay */
+        .custom-modal.active {
+            pointer-events: auto;
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Modal Box Top Margin & Slide-Down Animation */
+        .modal-content {
+            background: #3f3f3f36;
+            border: 1px solid rgba(235, 220, 196, 0.2);
+            border-radius: 50px;
+            width: fit-content;
+            max-width: 500px;
+            padding: 20px 40px;
+            margin-top: 40px;
+            color: #ebdcc4;
+            position: relative;
+            transform: translateX(100vw);
+            opacity: 0;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Active Modal Box State */
+        .custom-modal.active .modal-content {
+            transform: translateX(0);
+            margin: 5vh 5vw;
+            opacity: 1;
+        }
+
+        .modal-body {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e3dcd0;
+        }
+
+        ul {
+            list-style: none;
+            justify-content: center;
+        }
+
+        ul li a {
+            margin: 20px 0;
+            color: #ebdcc4;
+            text-decoration: none;
+            align-items: center;
+            text-align: center;
+        }
+
+        ul li a i {
+            display: none !important;
+        }
+
+        a {
+            position: relative;
+            display: inline-block;
+        }
+
+        a:hover {
+            position: relative;
+            color: #ebdcc4;
+
+        }
+
+        a:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: #ebdcc4;
+            transition: width 0.3s ease;
+        }
+
+        a:hover:before {
+            width: 100%;
+        }
+
+        #about,
+        #contact,
+        #service,
+        #project {
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            font-size: xx-large;
+        }
+
+        footer{
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #ebdcc4;
+            background-color: #111111;
+            color: #ebdcc4;
+            padding: 3px;
+
+        }
+
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+
+            .top-left,
+            .top-right,
+            .bottom-left,
+            .bottom-right {
+                font-size: 0.75rem;
+            }
+
+            .top-left {
+                top: 20px;
+                left: 20px;
+            }
+
+            .top-right {
+                top: 20px;
+                right: 20px;
+            }
+
+            .bottom-left {
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .bottom-right {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .modal-content {
+                margin-top: 20px;
+            }
+
+            .person-img {
+                height: 100vh;
+            }
+
+            .text-layer {
+                font-size: 17vw;
+                letter-spacing: 1px;
+            }
+
+            .text-outline {
+                -webkit-text-stroke: 1px #ebdcc4;
+            }
+
+            ul li a span {
+                display: none !important;
+            }
+
+            ul li a i {
+                display: contents !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero-banner" id="home">
+        <!-- Corner Details -->
+        <div class="top-left">FULL STACK & AI ENGINEER</div>
+
+        <!-- Top Right Button to Trigger Modal -->
+        <div class="top-right">
+            <button class="modal-btn" id="openModalBtn">
+                <i class="fa-solid fa-arrow-left-long"></i>
+            </button>
+        </div>
+
+        <div class="bottom-left">MOHAMMED BILAL AHMED</div>
+        <div class="bottom-right">github.com/bilal-0018</div>
+
+        <!-- 3D Typography Layering -->
+        <div class="portfolio-stack">
+            <h1 class="text-layer text-solid">PORTFOLIO</h1>
+            <img src="image.png" alt="Mohammed Bilal" class="person-img">
+            <h1 class="text-layer text-outline" aria-hidden="true">PORTFOLIO</h1>
+        </div>
+    </section>
+
+    <!-- Custom Modal Structure (Header aur Close Button removed) -->
+    <div class="custom-modal" id="customModal">
+        <div class="modal-content">
+            <nav class="modal-body">
+                <ul>
+                    <li><a href="#home"><i class="fa-solid fa-house"></i><span>HOME</span></a></li>
+                    <li><a href="#about"><i class="fa-solid fa-circle-info"></i><span>ABOUT</span></a></li>
+                    <li><a href="#service"><i class="fa-solid fa-gears"></i><span>SERVICE</span></a></li>
+                    <li><a href="#project"><i class="fa-solid fa-briefcase"></i><span>PROJECT</span></a></li>
+                    <li><a href="#contact"><i class="fa-solid fa-phone"></i><span>CONTACT</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section id="about">ABOUT</section>
+    <section id="service">SERVICE</section>
+    <section id="project">PROJECT</section>
+    <section id="contact">CONTACT</section>
+
+    <footer>
+        <p>&copy; 2026 Mohammed Bilal. Designed & Built with passion.</p>
+    </footer>
+
+    <!-- Modal Script -->
+    <script>
+        const modal = document.getElementById('customModal');
+        const openBtn = document.getElementById('openModalBtn');
+        const modalLinks = document.querySelectorAll('.modal-body a');
+
+        // Function to open modal smoothly
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        // Function to close modal smoothly on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Close modal when any link inside it is clicked
+        modalLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
