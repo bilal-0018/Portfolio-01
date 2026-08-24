@@ -19,23 +19,43 @@
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
+            scrollbar-width: thin;
         }
 
-        body {
+        html, body {
             background-color: #111111;
             color: #e3dcd0;
             font-family: 'Google Sans Flex', sans-serif;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden !important;
+            position: relative;
         }
 
         .hero-banner {
             position: relative;
             width: 100vw;
             height: 100vh;
+            height: 100dvh;
+            /* Dynamic screen height for mobile address bar */
             background-color: #111111;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden !important;
+            /* Locks left-right and extra vertical spill */
+        }
+
+        .portfolio-stack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Restricts image width overflow */
         }
 
         /* Top & Bottom Corner Metadata */
@@ -91,16 +111,6 @@
 
         .modal-btn:active {
             transform: scale(0.8);
-        }
-
-        /* Stacking Container */
-        .portfolio-stack {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         /* Typography Styling */
@@ -247,7 +257,7 @@
             font-size: xx-large;
         }
 
-        footer{
+        footer {
             display: flex;
             justify-content: center;
             border-top: 1px solid #ebdcc4;
@@ -294,6 +304,9 @@
 
             .person-img {
                 height: 100vh;
+                max-width: 100vw;
+                /* Keeps full size but prevents horizontal scrolling */
+                object-fit: cover;
             }
 
             .text-layer {
