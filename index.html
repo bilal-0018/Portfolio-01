@@ -22,7 +22,8 @@
             scrollbar-width: thin;
         }
 
-        html, body {
+        html,
+        body {
             background-color: #111111;
             color: #e3dcd0;
             font-family: 'Google Sans Flex', sans-serif;
@@ -384,19 +385,37 @@
         const openBtn = document.getElementById('openModalBtn');
         const modalLinks = document.querySelectorAll('.modal-body a');
 
-        // Function to open modal smoothly
-        openBtn.addEventListener('click', () => {
-            modal.classList.add('active');
+        // Screen width check (768px threshold for Mobile vs Laptop)
+        const isMobile = () => window.innerWidth <= 768;
+
+        // Mobile: Click event
+        openBtn.addEventListener('click', (e) => {
+            if (isMobile()) {
+                modal.classList.add('active');
+            }
         });
 
-        // Function to close modal smoothly on outside click
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
+        // Laptop/Desktop: Hover (Mouseover / Mouseleave) events
+        openBtn.addEventListener('mouseenter', () => {
+            if (!isMobile()) {
+                modal.classList.add('active');
+            }
+        });
+
+        modal.addEventListener('mouseleave', () => {
+            if (!isMobile()) {
                 modal.classList.remove('active');
             }
         });
 
-        // Close modal when any link inside it is clicked
+        // Mobile pe outside click se modal close karne k lie
+        window.addEventListener('click', (e) => {
+            if (isMobile() && e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Link click karne par modal close karne k lie
         modalLinks.forEach(link => {
             link.addEventListener('click', () => {
                 modal.classList.remove('active');
