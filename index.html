@@ -388,34 +388,35 @@
         // Screen width check (768px threshold for Mobile vs Laptop)
         const isMobile = () => window.innerWidth <= 768;
 
-        // Mobile: Click event
+        // Mobile: Click event to open modal
         openBtn.addEventListener('click', (e) => {
             if (isMobile()) {
                 modal.classList.add('active');
             }
         });
 
-        // Laptop/Desktop: Hover (Mouseover / Mouseleave) events
+        // Laptop/Desktop: Hover (mouseenter) to open modal
         openBtn.addEventListener('mouseenter', () => {
             if (!isMobile()) {
                 modal.classList.add('active');
             }
         });
 
+        // Laptop/Desktop: Mouse leave to close modal
         modal.addEventListener('mouseleave', () => {
             if (!isMobile()) {
                 modal.classList.remove('active');
             }
         });
 
-        // Mobile pe outside click se modal close karne k lie
+        // Mobile & Laptop: Modal ke bahar kahin bhi click karne par modal close hoga
         window.addEventListener('click', (e) => {
-            if (isMobile() && e.target === modal) {
+            if (e.target === modal) {
                 modal.classList.remove('active');
             }
         });
 
-        // Link click karne par modal close karne k lie
+        // Link click karne par modal close hoga
         modalLinks.forEach(link => {
             link.addEventListener('click', () => {
                 modal.classList.remove('active');
