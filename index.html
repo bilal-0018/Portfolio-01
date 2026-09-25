@@ -246,28 +246,926 @@
             width: 100%;
         }
 
-        #about,
-        #contact,
-        #service,
-        #project {
-            height: 100vh;
-            justify-content: center;
+        /* ================= ABOUT SECTION STYLES ================= */
+        .about-section {
+            min-height: 100vh;
+            padding: 100px 8vw;
+            background-color: #4f4330;
+            color: #e3dcd0;
+            display: flex;
             align-items: center;
-            text-align: center;
-            display: flex;
-            font-size: xx-large;
-        }
-
-        footer {
-            display: flex;
             justify-content: center;
-            border-top: 1px solid #ebdcc4;
-            background-color: #111111;
-            color: #ebdcc4;
-            padding: 3px;
-
         }
 
+        .about-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .about-header {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .about-header .sub-title {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #ebdcc4;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .about-header .main-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            color: #ebdcc4;
+            margin-top: 10px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text-content .lead-text {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: #ebdcc4;
+            margin-bottom: 20px;
+        }
+
+        .about-text-content .body-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #a8a299;
+            margin-bottom: 30px;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(235, 220, 196, 0.05);
+            border: 1px solid rgba(235, 220, 196, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #ebdcc4;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 8px rgba(76, 175, 80, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
+        /* Terminal Card */
+        .terminal-card {
+            background: #181818;
+            border: 1px solid rgba(235, 220, 196, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .terminal-header {
+            background: #222222;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-header .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-header .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot.red {
+            background: #ff5f56;
+        }
+
+        .dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .dot.green {
+            background: #27c93f;
+        }
+
+        .terminal-title {
+            font-size: 0.85rem;
+            color: #888888;
+            font-family: monospace;
+        }
+
+        .terminal-body {
+            padding: 22px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .terminal-body .prompt {
+            color: #27c93f;
+        }
+
+        .terminal-body .command {
+            color: #ebdcc4;
+        }
+
+        .terminal-body .json-code {
+            color: #e3dcd0;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+
+        .json-code .key {
+            color: #ffbd2e;
+        }
+
+        .json-code .string {
+            color: #82aaff;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+            color: #ebdcc4;
+            font-weight: bold;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Pillar Cards */
+        .about-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .pillar-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(235, 220, 196, 0.1);
+            padding: 30px 25px;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            background: rgba(235, 220, 196, 0.05);
+            border-color: rgba(235, 220, 196, 0.3);
+        }
+
+        .pillar-icon {
+            font-size: 1.8rem;
+            color: #ebdcc4;
+            margin-bottom: 18px;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.2rem;
+            color: #ebdcc4;
+            margin-bottom: 10px;
+        }
+
+        .pillar-card p {
+            font-size: 0.9rem;
+            color: #a8a299;
+            line-height: 1.6;
+        }
+
+        /* Mobile Adjustments for About Section */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                padding: 80px 5vw;
+            }
+        }
+
+        /* ================= SERVICES SECTION STYLES ================= */
+        .services-section {
+            min-height: 100vh;
+            padding: 100px 8vw;
+            background-color: #111111;
+            color: #e3dcd0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .services-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .services-header .sub-title {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #ebdcc4;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .services-header .main-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #ebdcc4;
+            margin: 10px 0 15px 0;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .services-header .header-desc {
+            font-size: 1rem;
+            color: #a8a299;
+            line-height: 1.6;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(235, 220, 196, 0.12);
+            border-radius: 24px;
+            padding: 40px 35px;
+            position: relative;
+            transition: all 0.4s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card .card-number {
+            position: absolute;
+            top: 30px;
+            right: 35px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: rgba(235, 220, 196, 0.15);
+            transition: color 0.4s ease;
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            color: #ebdcc4;
+            margin-bottom: 25px;
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            color: #ebdcc4;
+            margin-bottom: 12px;
+            font-weight: 600;
+            transition: color 0.4s ease;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: #a8a299;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            transition: color 0.4s ease;
+        }
+
+        /* Tech Tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tags span {
+            background: rgba(235, 220, 196, 0.06);
+            border: 1px solid rgba(235, 220, 196, 0.15);
+            color: #ebdcc4;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+        }
+
+        /* Card Hover Effects (Theme Inversion) */
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgb(235, 220, 196);
+            border-color: rgb(235, 220, 196);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card:hover .service-icon {
+            color: #111111;
+            transform: scale(1.1);
+        }
+
+        .service-card:hover .service-title {
+            color: #111111;
+        }
+
+        .service-card:hover .service-desc {
+            color: #333333;
+        }
+
+        .service-card:hover .card-number {
+            color: rgba(17, 17, 17, 0.2);
+        }
+
+        .service-card:hover .tech-tags span {
+            background: rgba(17, 17, 17, 0.08);
+            border-color: rgba(17, 17, 17, 0.2);
+            color: #111111;
+        }
+
+        /* Call To Action Box */
+        .services-cta {
+            margin-top: 60px;
+            text-align: center;
+            background: rgba(235, 220, 196, 0.03);
+            border: 1px solid rgba(235, 220, 196, 0.15);
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .services-cta p {
+            font-size: 1.1rem;
+            color: #ebdcc4;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ebdcc4;
+            color: #111111;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #ffffff;
+            transform: translateX(5px);
+            color: #111111;
+        }
+
+        .cta-btn:hover:before {
+            display: none;
+            /* Disables standard link line animation */
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-cta {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .services-section {
+                padding: 80px 5vw;
+            }
+        }
+
+        /* ================= UNIQUE BACKGROUND PROJECTS SECTION ================= */
+        .projects-section {
+            min-height: 100vh;
+            padding: 100px 8vw;
+            background-color: #111111;
+            /* Core Dark Base */
+            /* Subtle Technical Grid Lines Background */
+            background-image:
+                radial-gradient(circle at 15% 20%, rgba(235, 220, 196, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(235, 220, 196, 0.05) 0%, transparent 45%),
+                linear-gradient(rgba(235, 220, 196, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(235, 220, 196, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-position: 0 0, 0 0, -1px -1px, -1px -1px;
+            color: #e3dcd0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glassmorphic Ambient Glow Effect */
+        .projects-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(235, 220, 196, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            /* Content sitting above background glow */
+        }
+
+        .projects-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .projects-header .sub-title {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #ebdcc4;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .projects-header .main-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #ebdcc4;
+            margin: 10px 0 15px 0;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .projects-header .header-desc {
+            font-size: 1rem;
+            color: #a8a299;
+            line-height: 1.6;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(235, 220, 196, 0.15);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Project Image Container */
+        .project-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.08);
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(235, 220, 196, 0.3);
+            color: #ebdcc4;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Project Info Details */
+        .project-info {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: #ebdcc4;
+            margin-bottom: 12px;
+            font-weight: 600;
+            transition: color 0.4s ease;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: #a8a299;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transition: color 0.4s ease;
+        }
+
+        /* Tech Stack Tags */
+        .project-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .project-stack span {
+            background: rgba(235, 220, 196, 0.06);
+            border: 1px solid rgba(235, 220, 196, 0.15);
+            color: #ebdcc4;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        /* Action Buttons */
+        .project-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .project-btn {
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-btn:before {
+            display: none;
+        }
+
+        .demo-btn {
+            background: #ebdcc4;
+            color: #111111;
+            border: 1px solid #ebdcc4;
+        }
+
+        .demo-btn:hover {
+            background: #ffffff;
+            color: #111111;
+            transform: translateY(-2px);
+        }
+
+        .github-btn {
+            background: transparent;
+            color: #ebdcc4;
+            border: 1px solid rgba(235, 220, 196, 0.3);
+        }
+
+        .github-btn:hover {
+            background: rgba(235, 220, 196, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Card Hover Theme Inversion */
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: rgb(235, 220, 196);
+            border-color: rgb(235, 220, 196);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .project-card:hover .project-title {
+            color: #111111;
+        }
+
+        .project-card:hover .project-desc {
+            color: #333333;
+        }
+
+        .project-card:hover .project-stack span {
+            background: rgba(17, 17, 17, 0.08);
+            border-color: rgba(17, 17, 17, 0.2);
+            color: #111111;
+        }
+
+        .project-card:hover .demo-btn {
+            background: #111111;
+            color: rgb(235, 220, 196);
+            border-color: #111111;
+        }
+
+        .project-card:hover .github-btn {
+            color: #111111;
+            border-color: rgba(17, 17, 17, 0.3);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-section {
+                padding: 80px 5vw;
+            }
+        }
+
+        /* ================= CONTACT SECTION (THEME MATCHED) ================= */
+        .contact-section {
+            min-height: 100vh;
+            padding: 100px 8vw;
+            background-color: rgb(79, 67, 48);
+            /* Exact Dark Theme Background */
+            color: #e3dcd0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .contact-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .contact-header .sub-title {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #ebdcc4;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .contact-header .main-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #ebdcc4;
+            margin: 10px 0 15px 0;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .contact-header .header-desc {
+            font-size: 1rem;
+            color: #a8a299;
+            line-height: 1.6;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        /* ================= LEFT CONTACT CARD (EXACT DESIGN) ================= */
+        .contact-info-card {
+            background: rgba(22, 22, 22, 0.7);
+            border: 1px solid rgba(235, 220, 196, 0.12);
+            border-radius: 20px;
+            padding: 35px 30px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info-card .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ebdcc4;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(235, 220, 196, 0.15);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: #a8a299;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .contact-link-btn i {
+            font-size: 1.2rem;
+            color: #ebdcc4;
+            width: 24px;
+            text-align: center;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-link-btn span {
+            color: #e3dcd0;
+            transition: color 0.3s ease;
+        }
+
+        /* Hover & Focus Effects */
+        .contact-link-btn:hover {
+            background: rgba(235, 220, 196, 0.08);
+            border-color: #ebdcc4;
+            transform: translateX(5px);
+        }
+
+        .contact-link-btn:hover i {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .contact-link-btn:hover span {
+            color: #ebdcc4;
+        }
+
+        .contact-link-btn:before {
+            display: none;
+            /* Default link line underline disable karne ke liye */
+        }
+
+        /* Right Form Card */
+        .contact-form-card {
+            background: rgb(39, 35, 29);
+            border: 1px solid rgba(235, 220, 196, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ebdcc4;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(235, 220, 196, 0.04);
+            border: 1px solid rgba(235, 220, 196, 0.15);
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: #ebdcc4;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(227, 220, 208, 0.4);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #ebdcc4;
+            background: rgba(235, 220, 196, 0.08);
+        }
+
+        /* Submit Button */
+        .send-btn {
+            width: 100%;
+            background: #ebdcc4;
+            color: #111111;
+            border: 1px solid #ebdcc4;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: #ffffff;
+            color: #111111;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(235, 220, 196, 0.2);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                padding: 80px 5vw;
+            }
+        }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
@@ -370,14 +1268,394 @@
         </div>
     </div>
 
-    <section id="about">ABOUT</section>
-    <section id="service">SERVICE</section>
-    <section id="project">PROJECT</section>
-    <section id="contact">CONTACT</section>
+    <!-- ================= UNIQUE ABOUT SECTION ================= -->
+    <section id="about" class="about-section">
+        <div class="about-container">
 
-    <footer>
-        <p>&copy; 2026 Mohammed Bilal. Designed & Built with passion.</p>
-    </footer>
+            <!-- Section Header -->
+            <div class="about-header">
+                <span class="sub-title">// WHO I AM</span>
+                <h2 class="main-title">Engineering Digital Experiences & AI Solutions</h2>
+            </div>
+
+            <!-- Main Grid Layout -->
+            <div class="about-grid">
+
+                <!-- Left Column: Story & Vision -->
+                <div class="about-text-content">
+                    <p class="lead-text">
+                        I'm <strong>Mohammed Bilal Ahmed</strong>, a Full Stack & AI Engineer who transforms complex
+                        problems into clean, high-performance code and intuitive user interfaces.
+                    </p>
+                    <p class="body-text">
+                        My approach bridges the gap between sleek frontend architecture and intelligent backend/AI
+                        systems. From crafting responsive glassmorphic interfaces to designing robust data models, I
+                        focus on scalability, aesthetic precision, and seamless user interaction.
+                    </p>
+
+                    <!-- Status Badge -->
+                    <div class="status-badge">
+                        <span class="pulse-dot"></span>
+                        <span>Available for high-impact projects & collaboration</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Terminal Box -->
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">bilal@dev-mindset:~</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p><span class="prompt">$</span> <span class="command">cat mindset.json</span></p>
+                        <pre class="json-code">
+{
+  <span class="key">"name"</span>: <span class="string">"Mohammed Bilal Ahmed"</span>,
+  <span class="key">"role"</span>: <span class="string">"Full Stack & AI Engineer"</span>,
+  <span class="key">"core_stack"</span>: [<span class="string">"Python"</span>, <span class="string">"JavaScript"</span>, <span class="string">"Flask/Web"</span>, <span class="string">"C++"</span>],
+  <span class="key">"focus"</span>: <span class="string">"Clean Code, Glassmorphism, AI Architectures"</span>,
+  <span class="key">"status"</span>: <span class="string">"Building future-proof web systems..."</span>
+}
+                    </pre>
+                        <p><span class="prompt">$</span> <span class="cursor">_</span></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Feature Pillar Cards -->
+            <div class="about-pillars">
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Full Stack Craft</h3>
+                    <p>Building clean, structured, responsive web applications with precision layout mechanics.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>AI Integration</h3>
+                    <p>Merging intelligent models and data-driven solutions with user-friendly web interfaces.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>UI/UX Architecture</h3>
+                    <p>Creating immersive visual hierarchies, glassmorphism modal setups, and 3D layered aesthetics.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= UNIQUE SERVICES SECTION ================= -->
+    <section id="service" class="services-section">
+        <div class="services-container">
+
+            <!-- Section Header -->
+            <div class="services-header">
+                <span class="sub-title">// WHAT I OFFER</span>
+                <h2 class="main-title">Crafting Digital Solutions & Intelligent Systems</h2>
+                <p class="header-desc">
+                    From high-performance web engineering to intelligent AI integration, every project is built with
+                    precision, scalability, and seamless user experience in mind.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+
+                <!-- Service 1: Full-Stack Web Development -->
+                <div class="service-card">
+                    <div class="card-number">01</div>
+                    <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="service-title">Full-Stack Web Development</h3>
+                    <p class="service-desc">
+                        Designing scalable and structured web architectures. Responsive glassmorphic layouts, database
+                        management, and robust backend API integrations.
+                    </p>
+                    <div class="tech-tags">
+                        <span>HTML5 / CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Flask / Python</span>
+                        <span>SQL / CRUD</span>
+                    </div>
+                </div>
+
+                <!-- Service 2: AI & Smart Feature Systems -->
+                <div class="service-card highlight-card">
+                    <div class="card-number">02</div>
+                    <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="service-title">AI & Smart Feature Systems</h3>
+                    <p class="service-desc">
+                        Integrating machine learning logic, AI analytical insight components, and automated data
+                        processing into intuitive web interfaces.
+                    </p>
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>AI Integration</span>
+                        <span>Data Processing</span>
+                        <span>Model Workflows</span>
+                    </div>
+                </div>
+
+                <!-- Service 3: Interactive UI/UX Architecture -->
+                <div class="service-card">
+                    <div class="card-number">03</div>
+                    <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3 class="service-title">UI/UX & Glassmorphism Design</h3>
+                    <p class="service-desc">
+                        Creating modern visual hierarchies, 3D typography layering, custom modal overlays, and fluid
+                        mobile/desktop navigation setups.
+                    </p>
+                    <div class="tech-tags">
+                        <span>3D Typography</span>
+                        <span>Glassmorphism</span>
+                        <span>Responsive UI</span>
+                        <span>CSS Animations</span>
+                    </div>
+                </div>
+
+                <!-- Service 4: Core Application Logic -->
+                <div class="service-card">
+                    <div class="card-number">04</div>
+                    <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3 class="service-title">Core Application Logic</h3>
+                    <p class="service-desc">
+                        Engineered C++ application structures, interactive GUI desktop utilities, matrix
+                        transformations, and custom logic scripts for complex tasks.
+                    </p>
+                    <div class="tech-tags">
+                        <span>C++</span>
+                        <span>Tkinter / NumPy</span>
+                        <span>Data Structures</span>
+                        <span>System Optimization</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Section CTA Footer -->
+            <div class="services-cta">
+                <p>Have a custom project idea or specific requirements?</p>
+                <a href="#contact" class="cta-btn">Let's Discuss Your Project <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= PROJECTS SECTION ================= -->
+    <section id="project" class="projects-section">
+        <div class="projects-container">
+
+            <!-- Section Header -->
+            <div class="projects-header">
+                <span class="sub-title">// FEATURED WORK</span>
+                <h2 class="main-title">Selected Projects & Systems</h2>
+                <p class="header-desc">
+                    A showcase of web applications, AI-driven tools, and custom software architectures engineered for
+                    performance and precision.
+                </p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="project1.jpg" alt="Project 1 Preview" class="project-img">
+                        <span class="project-tag">WEB APP / AI</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Project Title 01</h3>
+                        <p class="project-desc">
+                            Brief overview of your first major project. Describe the core problem it solves, the
+                            architecture behind it, and its main functionalities.
+                        </p>
+                        <div class="project-stack">
+                            <span>Flask</span>
+                            <span>Python</span>
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn demo-btn" target="_blank">Live Demo <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/bilal-0018" class="project-btn github-btn" target="_blank"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="project2.jpg" alt="Project 2 Preview" class="project-img">
+                        <span class="project-tag">FULL STACK</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Project Title 02</h3>
+                        <p class="project-desc">
+                            Brief overview of your second project. Mention key technical implementations such as
+                            database interactions, glassmorphic UI, or CRUD logic.
+                        </p>
+                        <div class="project-stack">
+                            <span>JavaScript</span>
+                            <span>SQL</span>
+                            <span>UI/UX</span>
+                            <span>REST API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn demo-btn" target="_blank">Live Demo <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/bilal-0018" class="project-btn github-btn" target="_blank"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="project3.jpg" alt="Project 3 Preview" class="project-img">
+                        <span class="project-tag">DESKTOP / MATH</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Project Title 03</h3>
+                        <p class="project-desc">
+                            Brief overview of your algorithmic or desktop software project. Highlight key libraries,
+                            processing capabilities, and visual transformations.
+                        </p>
+                        <div class="project-stack">
+                            <span>Python</span>
+                            <span>NumPy</span>
+                            <span>Tkinter</span>
+                            <span>Matrix Logic</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn demo-btn" target="_blank">Live Demo <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/bilal-0018" class="project-btn github-btn" target="_blank"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="project4.jpg" alt="Project 4 Preview" class="project-img">
+                        <span class="project-tag">SYSTEM LOGIC</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Project Title 04</h3>
+                        <p class="project-desc">
+                            Brief overview of your system or C++ software logic. Detail data structures, collision
+                            systems, or computational algorithms engineered.
+                        </p>
+                        <div class="project-stack">
+                            <span>C++</span>
+                            <span>Data Structures</span>
+                            <span>OOP</span>
+                            <span>Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-btn demo-btn" target="_blank">Live Demo <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/bilal-0018" class="project-btn github-btn" target="_blank"><i
+                                    class="fa-brands fa-github"></i> Source</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION (MATCHED THEME) ================= -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+
+            <!-- Section Header -->
+            <div class="contact-header">
+                <span class="sub-title">// GET IN TOUCH</span>
+                <h2 class="main-title">Let's Build Something Together</h2>
+                <p class="header-desc">
+                    Have a project idea, question, or custom requirement? Fill out the form below to connect directly
+                    via WhatsApp.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- Left Side: Contact Information Card -->
+                <div class="contact-info-card">
+                    <h3 class="card-title">Contact Information</h3>
+
+                    <div class="contact-links-list">
+                        <a href="https://github.com/bilal-0018" target="_blank" class="contact-link-btn">
+                            <i class="fa-brands fa-github"></i>
+                            <span>GitHub Profile</span>
+                        </a>
+
+                        <a href="https://linkedin.com" target="_blank" class="contact-link-btn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                            <span>LinkedIn Network</span>
+                        </a>
+
+                        <a href="mailto:contact@mbilalahmed3106@gmail.com" class="contact-link-btn">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Email Me</span>
+                        </a>
+
+                        <a href="https://wa.me/923004330784" target="_blank" class="contact-link-btn">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Whatsapp Chat</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: WhatsApp Integrated Form -->
+                <div class="contact-form-card">
+                    <form id="whatsappForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Project Subject</label>
+                            <input type="text" id="subject" placeholder="e.g., Full Stack Web App" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="4" placeholder="Describe your project or query..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="send-btn">
+                            <span>Send Message via WhatsApp</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
     <!-- Modal Script -->
     <script>
@@ -421,6 +1699,28 @@
             link.addEventListener('click', () => {
                 modal.classList.remove('active');
             });
+        });
+
+        // WhatsApp Form Submission
+        const whatsappForm = document.getElementById('whatsappForm');
+
+        whatsappForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            const phoneNumber = "923004330784"; // Apna WhatsApp number enter karein
+
+            const formattedMessage = `Hello Mohammed Bilal,%0A%0A` +
+                `*Name:* ${encodeURIComponent(name)}%0A` +
+                `*Email:* ${encodeURIComponent(email)}%0A` +
+                `*Subject:* ${encodeURIComponent(subject)}%0A` +
+                `*Message:* ${encodeURIComponent(message)}`;
+
+            window.open(`https://wa.me/${phoneNumber}?text=${formattedMessage}`, '_blank');
         });
     </script>
 
